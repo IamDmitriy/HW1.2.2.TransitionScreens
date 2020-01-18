@@ -11,6 +11,8 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    final String link = "http://myfile.org/";
+    final int randomNumber = new Random().nextInt(100) + 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +23,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
-        Button btnForward = findViewById(R.id.btnForward);
-        Button btnBack = findViewById(R.id.btnBack);
-        TextView link = findViewById(R.id.link);
+        Button btnForward = findViewById(R.id.btn_forward);
+        Button btnBack = findViewById(R.id.btn_back);
+        TextView txtLink = findViewById(R.id.txt_link);
 
-        link.setText("http://myfile.org/" + new Random().nextInt(100) + 1);
+        String generatedLink = link + randomNumber;
+        txtLink.setText(generatedLink);
 
         btnForward.setOnClickListener(new View.OnClickListener() {
             @Override
